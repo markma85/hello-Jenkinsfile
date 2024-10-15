@@ -13,12 +13,6 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo "Checkout Code started"
-                dir('SourceCode') {
-                    git(
-                        url: "https://github.com/markma85/hello-Jenkinsfile.git",
-                        branch: jenkins-pipeline
-                    )
-                }
             }
         }
         stage('Build') {
