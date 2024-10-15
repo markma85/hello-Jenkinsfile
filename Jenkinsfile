@@ -26,7 +26,7 @@ pipeline {
                 echo "Deploy started"
                 //docker.image("jr/web-python-flask:${env.BUILD_ID}").withRun('-p 8080:80') {
 
-                }
+                //}
             }
         }
     }
