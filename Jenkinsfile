@@ -24,13 +24,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build started"
-                def customImage = docker.build("jr/web-python-flask")
+                //def customImage = docker.build("jr/web-python-flask")
             }
         }
         stage('Deploy') {
             steps {
                 echo "Deploy started"
-                
+
             }
         }
     }
