@@ -18,14 +18,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build started"
-                docker.build("jr/web-python-flask:${env.BUILD_ID}")
+                //docker.build("jr/web-python-flask:${env.BUILD_ID}")
             }
         }
         stage('Deploy') {
             steps {
                 echo "Deploy started"
-                docker.image("jr/web-python-flask:${env.BUILD_ID}").withRun('-p 8080:80') {
-                    
+                //docker.image("jr/web-python-flask:${env.BUILD_ID}").withRun('-p 8080:80') {
+
                 }
             }
         }
