@@ -1,20 +1,36 @@
 pipeline {
-    agent any
+    agent {
+        dockerfile true
+    }
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo "Test started"
+                sh 'python3 -V'
+            }
+        }
+        stage('Checkout Code') {
+            steps {
+                echo "Checkout Code started"
+                dir('SourceCode') {
+                    git(
+                        url: "https://github.com/markma85/hello-Jenkinsfile.git",
+                        branch: jenkins-pipeline
+                    )
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                echo "Build started"
+                def customImage = docker.build("jr/web-python-flask")
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo "Deploy started"
+                
             }
         }
     }
